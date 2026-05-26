@@ -977,7 +977,11 @@
 
 </main>
 
-
+<script>
+function reportHeight(){var h=document.documentElement.scrollHeight;window.parent.postMessage({type:'civic-ecosystem-height',height:h},'*');}
+window.addEventListener('load',reportHeight);
+new ResizeObserver(reportHeight).observe(document.documentElement);
+</script>
 
 </body>
 </html>
