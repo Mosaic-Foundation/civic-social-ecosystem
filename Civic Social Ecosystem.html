@@ -978,9 +978,14 @@
 </main>
 
 <script>
-function reportHeight(){var h=document.documentElement.scrollHeight;window.parent.postMessage({type:'civic-ecosystem-height',height:h},'*');}
+function reportHeight(){
+  var sheet=document.querySelector('.sheet');
+  if(!sheet||!window.parent||window.parent===window)return;
+  var r=sheet.getBoundingClientRect();
+  var h=Math.ceil(r.bottom+40);
+  window.parent.postMessage({type:'civic-ecosystem-height',height:h},'*');
+}
 window.addEventListener('load',reportHeight);
-new ResizeObserver(reportHeight).observe(document.documentElement);
 </script>
 
 </body>
