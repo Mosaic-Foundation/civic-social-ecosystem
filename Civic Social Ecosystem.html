@@ -378,6 +378,51 @@
   }
   .embed-pip::before { content: "✦"; font-size: 12px; }
 
+  /* doc-link pill — links to specs / demos / external standards */
+  .doc-link {
+    align-self: flex-start;
+    margin-top: 14px;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-family: var(--font-label);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    color: var(--green);
+    background: var(--green-soft);
+    border: 1px solid transparent;
+    border-radius: 9999px;
+    padding: 4px 12px;
+    text-decoration: none;
+    transition: background 0.15s, color 0.15s;
+  }
+  .doc-link:hover { background: var(--green); color: #fff; }
+  .doc-link::after { content: "→"; font-size: 12px; }
+  .card--standard .doc-link {
+    color: var(--standards-ink);
+    background: rgba(90,96,104,0.08);
+  }
+  .card--standard .doc-link:hover { background: #5A6068; color: #fff; }
+
+  /* muted pill for cards with no documentation yet */
+  .doc-planned {
+    align-self: flex-start;
+    margin-top: 14px;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-family: var(--font-label);
+    font-size: 10.5px;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    color: var(--ink-faint);
+    background: rgba(41, 75, 82, 0.04);
+    border-radius: 9999px;
+    padding: 4px 11px;
+    font-style: italic;
+  }
+
   /* Activity Feed lenses */
   .lenses {
     margin-top: 14px;
@@ -659,6 +704,7 @@
           <div class="card-kicker" data-color="green">community-scoped</div>
           <h3 class="card-title">Civic Hub<span class="sub">server-side · federated</span></h3>
           <p class="card-desc">A community's civic space — rendering software operating on the Community Node and Community Data Store the community itself owns. Change hubs, keep the community. Operators add democratic-process plugins (votes, deliberation, proposals, town halls), and admin console, AI assistants, and pipelines for ingesting external civic data (meeting minutes, voting records, public records) are part of every hub, not separate products.</p>
+          <a class="doc-link" href="https://demo-hub.civic.social" target="_blank" rel="noopener">View demo</a>
           <div class="assembly">
             <div class="assembly-label">Assembled from</div>
             <div class="tiles">
@@ -914,21 +960,25 @@
           <div class="card-kicker" data-color="green">spec</div>
           <h3 class="card-title">Hub Spec</h3>
           <p class="card-desc">Standardizes the hub interface so any conformant hub is interchangeable — communities switch software without losing data, members, or history. No vendor lock-in.</p>
+          <a class="doc-link" href="https://github.com/Mosaic-Foundation/Civic-Social-Mono/blob/main/specs/civic-hub.md" target="_blank" rel="noopener">View spec</a>
         </div>
         <div class="card card--protocol" data-scope="green">
           <div class="card-kicker" data-color="green">spec</div>
           <h3 class="card-title">Process Spec</h3>
           <p class="card-desc">Plugin contract for democratic processes — votes, deliberations, proposals. Anyone can author a new process; any hub or dashboard can host it.</p>
+          <a class="doc-link" href="https://github.com/Mosaic-Foundation/Civic-Social-Mono/blob/main/specs/civic-process.md" target="_blank" rel="noopener">View spec</a>
         </div>
         <div class="card card--protocol" data-scope="green">
           <div class="card-kicker" data-color="green">spec</div>
           <h3 class="card-title">Activity Spec</h3>
           <p class="card-desc">Common shape for civic events. Activity emitted anywhere in the ecosystem flows consistently into any feed, notification stream, or embed.</p>
+          <a class="doc-link" href="https://github.com/Mosaic-Foundation/Civic-Social-Mono/blob/main/specs/civic-activity.md" target="_blank" rel="noopener">View spec</a>
         </div>
         <div class="card card--protocol" data-scope="green">
           <div class="card-kicker" data-color="green">spec</div>
           <h3 class="card-title">Identity Spec</h3>
           <p class="card-desc">Civic profile of decentralized identity — what makes a DID and its credentials valid as a citizen, entity, or community across the ecosystem.</p>
+          <span class="doc-planned">Documentation planned</span>
         </div>
       </div>
     </section>
@@ -951,18 +1001,22 @@
         <div class="card card--standard" data-scope="neutral">
           <div class="card-kicker" data-color="neutral">W3C</div>
           <h3 class="card-title">ActivityPub<span class="sub">federation protocol</span></h3>
+          <a class="doc-link" href="https://www.w3.org/TR/activitypub/" target="_blank" rel="noopener">W3C spec</a>
         </div>
         <div class="card card--standard" data-scope="neutral">
           <div class="card-kicker" data-color="neutral">W3C</div>
           <h3 class="card-title">Decentralized Identifiers<span class="sub">DIDs — portable identity</span></h3>
+          <a class="doc-link" href="https://www.w3.org/TR/did-core/" target="_blank" rel="noopener">W3C spec</a>
         </div>
         <div class="card card--standard" data-scope="neutral">
           <div class="card-kicker" data-color="neutral">W3C</div>
           <h3 class="card-title">Verifiable Credentials<span class="sub">cryptographic credential format</span></h3>
+          <a class="doc-link" href="https://www.w3.org/TR/vc-data-model-2.0/" target="_blank" rel="noopener">W3C spec</a>
         </div>
         <div class="card card--standard" data-scope="neutral">
           <div class="card-kicker" data-color="neutral">IETF · OpenID</div>
           <h3 class="card-title">OAuth 2.0 / OIDC<span class="sub">federated authn &amp; authz</span></h3>
+          <a class="doc-link" href="https://openid.net/specs/openid-connect-core-1_0.html" target="_blank" rel="noopener">OpenID spec</a>
         </div>
       </div>
     </section>
